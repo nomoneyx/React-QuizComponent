@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 
-const Quiz = () => {
-  let quizData = require("./quiz_data.json");
-  const [quiz_position, set_quiz_position] = useState(1);
+let quizData = require("./quiz_data.json");
 
-  return (
-    <div>
-      <div className="QuizQuestion">
-        {quizData.quiz_questions[0].instruction_text}
+class Quiz extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { quiz_position: 1 };
+  }
+  render() {
+    return (
+      <div>
+        <div className="QuizQuestion">
+          {quizData.quiz_questions[0].instruction_text}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Quiz;
